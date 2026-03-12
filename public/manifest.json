@@ -1,0 +1,16 @@
+{
+  "name": "FocusFlow",
+  "short_name": "FocusFlow",
+  "description": "Smart Student Productivity Platform",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    }
+  ]
+}
