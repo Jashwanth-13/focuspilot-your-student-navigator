@@ -17,10 +17,8 @@ export default function Reader() {
     else if (file.name.endsWith(".pdf")) {
       try {
 
-        // FIXED IMPORT (important for Vite)
-        const pdfjsLib = await import(
-          "pdfjs-dist/legacy/build/pdf"
-        )
+        // Vite compatible pdfjs import
+        const pdfjsLib = await import("pdfjs-dist/legacy/build/pdf")
 
         pdfjsLib.GlobalWorkerOptions.workerSrc =
           "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js"
@@ -34,6 +32,7 @@ export default function Reader() {
         let text = ""
 
         for (let i = 1; i <= pdf.numPages; i++) {
+
           const page = await pdf.getPage(i)
 
           const tc = await page.getTextContent()
@@ -52,10 +51,11 @@ export default function Reader() {
         setWordCount(wc)
 
       } catch (err) {
+
         console.error(err)
 
         setContent(
-          "Error reading PDF file. Try another file."
+          "Error reading PDF. Try another file."
         )
       }
     }
